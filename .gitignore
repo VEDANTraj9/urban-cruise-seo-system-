@@ -23,6 +23,10 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+# Database dumps
+database.sql
+*.sql
+
 # Uploads & Temp Media (keep directory structure with .gitkeep)
 backend/uploads/*
 !backend/uploads/.gitkeep
