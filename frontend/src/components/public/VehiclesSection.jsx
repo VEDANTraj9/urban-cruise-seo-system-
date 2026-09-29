@@ -1,3 +1,5 @@
+"use client";
+
 import { getImageUrl } from '@/utils/constants';
 
 export default function VehiclesSection({ vehicles }) {
@@ -34,7 +36,12 @@ export default function VehiclesSection({ vehicles }) {
                     <h3 className="vehicle-name">{v.name}</h3>
                     <p className="vehicle-description">{v.description}</p>
                     <div className="features-list">
-                      {(v.features || []).map((f, i) => (
+                      {(Array.isArray(v.features)
+                        ? v.features
+                        : (typeof v.features === 'string'
+                            ? v.features.split(',').map(s => s.trim()).filter(Boolean)
+                            : [])
+                      ).map((f, i) => (
                         <span key={i} className="feature-pill">✓ {f}</span>
                       ))}
                     </div>

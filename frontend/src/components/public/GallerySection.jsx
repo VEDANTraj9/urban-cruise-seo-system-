@@ -1,3 +1,5 @@
+"use client";
+
 import { getImageUrl } from '@/utils/constants';
 
 export default function GallerySection({ gallery }) {
