@@ -26,6 +26,15 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Static media uploads serving
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Root landing endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'Urban Cruise Delhi Backend API is running live!',
+    version: '1.0.0'
+  });
+});
+
 // Health check endpoint
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
