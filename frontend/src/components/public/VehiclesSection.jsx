@@ -1,3 +1,5 @@
+import { getImageUrl } from '@/utils/constants';
+
 export default function VehiclesSection({ vehicles }) {
   return (
     <section id="vehicles" className="section section-alt">
@@ -20,7 +22,11 @@ export default function VehiclesSection({ vehicles }) {
               <div key={v.id} className="vehicle-card">
                 <div className="vehicle-card-img">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={v.image} alt={v.name} />
+                  <img
+                    src={getImageUrl(v.image)}
+                    alt={v.name}
+                    onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                  />
                   <span className="vehicle-capacity-tag">{v.seating_capacity} Seater</span>
                 </div>
                 <div className="vehicle-card-body">

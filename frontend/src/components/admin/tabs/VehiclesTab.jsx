@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { DashboardService } from '@/services/dashboard.service';
 import { uploadMedia } from '@/services/api.service';
+import { getImageUrl } from '@/utils/constants';
 
 export default function VehiclesTab({ vehicles, setVehicles, showToast }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -173,8 +174,9 @@ export default function VehiclesTab({ vehicles, setVehicles, showToast }) {
                       <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
-                          src={v.image}
+                          src={getImageUrl(v.image)}
                           alt={v.name}
+                          onError={(e) => { e.currentTarget.src = '/logo.png'; }}
                           style={{ width: 44, height: 44, borderRadius: 6, objectFit: 'cover' }}
                         />
                         <strong>{v.name}</strong>
@@ -268,6 +270,18 @@ export default function VehiclesTab({ vehicles, setVehicles, showToast }) {
                     />
                   </label>
                 </div>
+                {editingVehicle.image && (
+                  <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={getImageUrl(editingVehicle.image)}
+                      alt="Preview"
+                      onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                      style={{ width: 80, height: 50, objectFit: 'cover', borderRadius: 4, border: '1px solid #334155' }}
+                    />
+                    <span style={{ fontSize: 12, color: '#94a3b8' }}>Preview (Direct upload or external link)</span>
+                  </div>
+                )}
               </div>
 
               <div className="form-group">

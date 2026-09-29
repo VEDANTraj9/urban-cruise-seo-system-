@@ -10,9 +10,16 @@ class UploadController {
         });
       }
 
-      // Return both relative path and full URL
+      // Dynamically resolve full URL using server host or BASE_URL
+      const host = req.get('host') || 'urban-cruise-backend.onrender.com';
+      const isHttps = req.secure || req.headers['x-forwarded-proto'] === 'https' || host.includes('onrender.com');
+      const protocol = isHttps ? 'https' : (req.protocol || 'http');
+      const origin = (env.BASE_URL && !env.BASE_URL.includes('localhost'))
+        ? env.BASE_URL.replace(/\/+$/, '')
+        : `${protocol}://${host}`;
+
       const relativeUrl = `/uploads/${req.file.filename}`;
-      const fullUrl = `${env.BASE_URL}${relativeUrl}`;
+      const fullUrl = `${origin}${relativeUrl}`;
 
       return res.status(201).json({
         success: true,

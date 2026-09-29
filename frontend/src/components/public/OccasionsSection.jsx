@@ -1,3 +1,5 @@
+import { getImageUrl } from '@/utils/constants';
+
 export default function OccasionsSection({ occasions }) {
   return (
     <section id="occasions" className="section">
@@ -19,7 +21,12 @@ export default function OccasionsSection({ occasions }) {
             occasions.map((o) => (
               <div key={o.id} className="occasion-card">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={o.image} alt={o.title} className="occasion-bg" />
+                <img
+                  src={getImageUrl(o.image)}
+                  alt={o.title}
+                  className="occasion-bg"
+                  onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                />
                 <div className="occasion-overlay" />
                 <div className="occasion-text">
                   <h3 className="occasion-title">{o.title}</h3>

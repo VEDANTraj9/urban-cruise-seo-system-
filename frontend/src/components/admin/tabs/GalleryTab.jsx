@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { DashboardService } from '@/services/dashboard.service';
 import { uploadMedia } from '@/services/api.service';
+import { getImageUrl } from '@/utils/constants';
 
 export default function GalleryTab({ gallery, setGallery, showToast }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -75,7 +76,11 @@ export default function GalleryTab({ gallery, setGallery, showToast }) {
             {gallery.map((g) => (
               <div key={g.id} className="gallery-admin-card">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={g.image_url} alt={g.alt_tag} />
+                <img
+                  src={getImageUrl(g.image_url)}
+                  alt={g.alt_tag}
+                  onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                />
                 <div className="gallery-admin-body">
                   <span className="alt-tag-label">SEO Alt Tag:</span>
                   <p className="alt-tag-text">{g.alt_tag}</p>
@@ -115,6 +120,18 @@ export default function GalleryTab({ gallery, setGallery, showToast }) {
                     />
                   </label>
                 </div>
+                {newItem.image_url && (
+                  <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={getImageUrl(newItem.image_url)}
+                      alt="Preview"
+                      onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                      style={{ width: 80, height: 50, objectFit: 'cover', borderRadius: 4, border: '1px solid #334155' }}
+                    />
+                    <span style={{ fontSize: 12, color: '#94a3b8' }}>Preview (Direct upload or external link)</span>
+                  </div>
+                )}
               </div>
 
               <div className="form-group">

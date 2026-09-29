@@ -1,8 +1,15 @@
+import { getImageUrl } from '@/utils/constants';
+
 export default function HeroSection({ hero }) {
   return (
     <section className="hero-section">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={hero.banner_image} alt={hero.main_heading} className="hero-bg" />
+      <img
+        src={getImageUrl(hero.banner_image)}
+        alt={hero.main_heading}
+        className="hero-bg"
+        onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1600&q=80'; }}
+      />
       <div className="container">
         <div className="hero-content">
           <div className="hero-badge">Urban Cruise Fleet</div>

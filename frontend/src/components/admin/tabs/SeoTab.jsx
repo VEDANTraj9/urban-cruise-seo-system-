@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { DashboardService } from '@/services/dashboard.service';
 import { uploadMedia } from '@/services/api.service';
+import { getImageUrl } from '@/utils/constants';
 
 export default function SeoTab({ seo, setSeo, showToast }) {
   const [saving, setSaving] = useState(false);
@@ -158,6 +159,18 @@ export default function SeoTab({ seo, setSeo, showToast }) {
                 />
               </label>
             </div>
+            {seo.og_image && (
+              <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={getImageUrl(seo.og_image)}
+                  alt="OG Preview"
+                  onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                  style={{ width: 100, height: 50, objectFit: 'cover', borderRadius: 4, border: '1px solid #334155' }}
+                />
+                <span style={{ fontSize: 12, color: '#94a3b8' }}>Preview</span>
+              </div>
+            )}
           </div>
 
           <h3 style={{ marginTop: 24 }}>Twitter Card Settings</h3>
@@ -192,6 +205,18 @@ export default function SeoTab({ seo, setSeo, showToast }) {
                 />
               </label>
             </div>
+            {seo.twitter_image && (
+              <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={getImageUrl(seo.twitter_image)}
+                  alt="Twitter Preview"
+                  onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                  style={{ width: 100, height: 50, objectFit: 'cover', borderRadius: 4, border: '1px solid #334155' }}
+                />
+                <span style={{ fontSize: 12, color: '#94a3b8' }}>Preview</span>
+              </div>
+            )}
           </div>
         </div>
 

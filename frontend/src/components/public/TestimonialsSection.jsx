@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useEffect, useState } from 'react';
+import { getImageUrl } from '@/utils/constants';
 
 export default function TestimonialsSection({ testimonials }) {
   const scrollRef = useRef(null);
@@ -96,9 +97,10 @@ export default function TestimonialsSection({ testimonials }) {
               <div className="reviewer-info">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={t.customer_image || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80'}
+                  src={getImageUrl(t.customer_image || 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80')}
                   alt={t.customer_name}
                   className="reviewer-avatar"
+                  onError={(e) => { e.currentTarget.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80'; }}
                 />
                 <div>
                   <div className="reviewer-name">{t.customer_name}</div>

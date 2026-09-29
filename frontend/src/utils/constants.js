@@ -5,6 +5,35 @@ export const API_BASE = rawApiBase.replace(/\/+$/, '').endsWith('/api')
   ? rawApiBase.replace(/\/+$/, '')
   : `${rawApiBase.replace(/\/+$/, '')}/api`;
 
+export function getImageUrl(src) {
+  if (!src) return '/logo.png';
+  let clean = String(src).trim();
+  if (!clean) return '/logo.png';
+
+  const liveBackend = (process.env.NEXT_PUBLIC_API_URL || 'https://urban-cruise-backend.onrender.com/api')
+    .replace(/\/api\/?$/, '');
+
+  // Upgrade http on render to https
+  if (clean.startsWith('http://urban-cruise-backend.onrender.com')) {
+    clean = clean.replace('http://', 'https://');
+  }
+
+  // Handle any localhost:5000 occurrences
+  if (clean.includes('localhost:5000')) {
+    return clean.replace(/https?:\/\/localhost:5000/, liveBackend);
+  }
+
+  // Handle relative uploads path
+  if (clean.startsWith('/uploads/')) {
+    return `${liveBackend}${clean}`;
+  }
+  if (clean.startsWith('uploads/')) {
+    return `${liveBackend}/${clean}`;
+  }
+
+  return clean;
+}
+
 export const SITE_NAME = 'Urban Cruise';
 export const SITE_TAGLINE = 'Luxury Fleet & Travel Rentals';
 

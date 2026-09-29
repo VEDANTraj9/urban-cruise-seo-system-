@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { DashboardService } from '@/services/dashboard.service';
 import { uploadMedia } from '@/services/api.service';
+import { getImageUrl } from '@/utils/constants';
 
 export default function HomepageTab({ hero, setHero, about, setAbout, showToast }) {
   const [savingHero, setSavingHero] = useState(false);
@@ -108,6 +109,18 @@ export default function HomepageTab({ hero, setHero, about, setAbout, showToast 
                   />
                 </label>
               </div>
+              {hero.banner_image && (
+                <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={getImageUrl(hero.banner_image)}
+                    alt="Banner Preview"
+                    onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                    style={{ width: 100, height: 50, objectFit: 'cover', borderRadius: 4, border: '1px solid #334155' }}
+                  />
+                  <span style={{ fontSize: 12, color: '#94a3b8' }}>Preview (Direct upload or external link)</span>
+                </div>
+              )}
             </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
@@ -191,6 +204,18 @@ export default function HomepageTab({ hero, setHero, about, setAbout, showToast 
                   />
                 </label>
               </div>
+              {about.featured_image && (
+                <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 10 }}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={getImageUrl(about.featured_image)}
+                    alt="Featured Preview"
+                    onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                    style={{ width: 100, height: 50, objectFit: 'cover', borderRadius: 4, border: '1px solid #334155' }}
+                  />
+                  <span style={{ fontSize: 12, color: '#94a3b8' }}>Preview (Direct upload or external link)</span>
+                </div>
+              )}
             </div>
 
             <button type="submit" className="btn-save" disabled={savingAbout} style={{ marginTop: 12 }}>
