@@ -64,10 +64,52 @@ export const DEFAULT_ABOUT = {
   featured_image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80'
 };
 
+export function getMapIframeSrc(input) {
+  if (!input || typeof input !== 'string') {
+    return 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9961601053744!2d77.3325448!3d28.6461303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfbdf6e5c3f2d%3A0x4ac4ecf5867fdb04!2sUrban%20Cruise%209%20to%2026%20Seater%20Tempo%20Traveller%20on%20Rent!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin';
+  }
+
+  const str = input.trim();
+
+  // 1. If user pasted raw iframe code, extract src
+  const srcMatch = str.match(/src=["']([^"']+)["']/i);
+  if (srcMatch && srcMatch[1]) {
+    return srcMatch[1];
+  }
+
+  // 2. If it's already an embed URL
+  if (str.includes('/maps/embed') || str.includes('output=embed')) {
+    return str;
+  }
+
+  // 3. If it contains Urban Cruise place token or name
+  if (
+    str.includes('0x390cfbdf6e5c3f2d:0x4ac4ecf5867fdb04') ||
+    str.toLowerCase().includes('urban+cruise') ||
+    str.toLowerCase().includes('urban%20cruise')
+  ) {
+    return 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9961601053744!2d77.3325448!3d28.6461303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfbdf6e5c3f2d%3A0x4ac4ecf5867fdb04!2sUrban%20Cruise%209%20to%2026%20Seater%20Tempo%20Traveller%20on%20Rent!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin';
+  }
+
+  // 4. Coordinates in URL: @lat,lng
+  const atMatch = str.match(/@(-?\d+\.\d+),(-?\d+\.\d+)/);
+  if (atMatch) {
+    return `https://maps.google.com/maps?q=${atMatch[1]},${atMatch[2]}&hl=en&z=15&output=embed`;
+  }
+
+  // 5. Destination/place in URL
+  const placeMatch = str.match(/\/maps\/(?:place|dir)\/([^/@?]+)/);
+  if (placeMatch && placeMatch[1]) {
+    return `https://maps.google.com/maps?q=${encodeURIComponent(decodeURIComponent(placeMatch[1].replace(/\+/g, ' ')))}&output=embed`;
+  }
+
+  return `https://maps.google.com/maps?q=${encodeURIComponent(str)}&output=embed`;
+}
+
 export const DEFAULT_CONTACT = {
-  phone_primary: '+91 93240 48224',
-  phone_secondary: '+91 98765 43210',
-  email: 'info@urbancruise.in',
-  office_address: 'Delhi NCR, India',
-  google_map_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114887391942!2d77.2159562!3d28.6289018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b045055b%3A0x6b40283ffbf49842!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin'
+  phone_primary: '+91-9876543210',
+  phone_secondary: '+91-9123456780',
+  email: 'booking@urbancruise.in',
+  office_address: '3 – floor, Mahalaxmi Plaza, near Signature Global mall, Sector 3, Vaishali, Ghaziabad, Uttar Pradesh 201010',
+  google_map_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3501.9961601053744!2d77.3325448!3d28.6461303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfbdf6e5c3f2d%3A0x4ac4ecf5867fdb04!2sUrban%20Cruise%209%20to%2026%20Seater%20Tempo%20Traveller%20on%20Rent!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin'
 };

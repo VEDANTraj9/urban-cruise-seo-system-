@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { DashboardService } from '@/services/dashboard.service';
+import { getMapIframeSrc } from '@/utils/constants';
 
 export default function ContactTab({ contact, setContact, showToast }) {
   const [saving, setSaving] = useState(false);
@@ -99,11 +100,7 @@ export default function ContactTab({ contact, setContact, showToast }) {
               <span className="field-hint" style={{ fontWeight: 600 }}>Map Preview:</span>
               <div style={{ marginTop: 8, height: 220, borderRadius: 8, overflow: 'hidden', border: '1px solid #e2e8f0' }}>
                 <iframe
-                  src={
-                    contact.google_map_embed.includes('src=')
-                      ? (contact.google_map_embed.match(/src=["']([^"']+)["']/i)?.[1] || contact.google_map_embed)
-                      : contact.google_map_embed
-                  }
+                  src={getMapIframeSrc(contact.google_map_embed)}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
