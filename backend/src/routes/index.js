@@ -13,6 +13,21 @@ const contactRoutes = require('./contact.routes');
 const uploadRoutes = require('./upload.routes');
 const publicRoutes = require('./public.routes');
 
+// API Root endpoint
+router.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: 'Urban Cruise Delhi REST API is active and healthy!',
+    version: '1.0.0',
+    endpoints: {
+      seo: '/api/public/seo',
+      homepage: '/api/public/homepage',
+      vehicles: '/api/public/vehicles',
+      auth: '/api/auth/login'
+    }
+  });
+});
+
 router.use('/auth', authRoutes);
 router.use('/seo', seoRoutes);
 router.use('/schemas', schemaRoutes);
