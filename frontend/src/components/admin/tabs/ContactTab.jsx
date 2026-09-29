@@ -97,10 +97,19 @@ export default function ContactTab({ contact, setContact, showToast }) {
           {contact.google_map_embed && (
             <div style={{ marginTop: 16 }}>
               <span className="field-hint" style={{ fontWeight: 600 }}>Map Preview:</span>
-              <div
-                style={{ marginTop: 8, height: 200, borderRadius: 8, overflow: 'hidden' }}
-                dangerouslySetInnerHTML={{ __html: contact.google_map_embed }}
-              />
+              <div style={{ marginTop: 8, height: 220, borderRadius: 8, overflow: 'hidden', border: '1px solid #e2e8f0' }}>
+                <iframe
+                  src={
+                    contact.google_map_embed.includes('src=')
+                      ? (contact.google_map_embed.match(/src=["']([^"']+)["']/i)?.[1] || contact.google_map_embed)
+                      : contact.google_map_embed
+                  }
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  title="Map Preview"
+                />
+              </div>
             </div>
           )}
         </div>

@@ -1,3 +1,15 @@
+function getMapIframeSrc(embed) {
+  if (!embed || typeof embed !== 'string') {
+    return 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114887391942!2d77.2159562!3d28.6289018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b045055b%3A0x6b40283ffbf49842!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin';
+  }
+  const trimmed = embed.trim();
+  const srcMatch = trimmed.match(/src=["']([^"']+)["']/i);
+  if (srcMatch && srcMatch[1]) {
+    return srcMatch[1];
+  }
+  return trimmed;
+}
+
 export default function ContactSection({ contact }) {
   return (
     <section id="contact" className="section">
@@ -31,18 +43,18 @@ export default function ContactSection({ contact }) {
             </div>
           </div>
 
-          <div className="map-card">
-            {contact.google_map_embed ? (
-              <div
-                style={{ width: '100%', height: '100%', minHeight: 320 }}
-                dangerouslySetInnerHTML={{ __html: contact.google_map_embed }}
-              />
-            ) : (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%', minHeight: 260, color: '#94a3b8' }}>
-                Google Map Location
-              </div>
-            )}
-          </div>
+        <div className="map-card">
+          <iframe
+            src={getMapIframeSrc(contact?.google_map_embed)}
+            width="100%"
+            height="100%"
+            style={{ border: 0, minHeight: 360, width: '100%', borderRadius: 8 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            title="Urban Cruise Delhi Map Location"
+          />
+        </div>
         </div>
       </div>
     </section>

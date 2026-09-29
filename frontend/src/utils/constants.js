@@ -40,5 +40,5 @@ export const DEFAULT_CONTACT = {
   phone_secondary: '+91 98765 43210',
   email: 'info@urbancruise.in',
   office_address: 'Delhi NCR, India',
-  google_map_embed: ''
+  google_map_embed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14008.114887391942!2d77.2159562!3d28.6289018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfd37b045055b%3A0x6b40283ffbf49842!2sConnaught%20Place%2C%20New%20Delhi%2C%20Delhi%20110001!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin'
 };
