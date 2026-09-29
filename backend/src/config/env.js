@@ -19,6 +19,7 @@ module.exports = {
   DB_USER: process.env.DB_USER || 'root',
   DB_PASSWORD: process.env.DB_PASSWORD || '',
   DB_NAME: process.env.DB_NAME || 'seo_homepage_db',
+  DB_SSL: process.env.DB_SSL === 'true',
   JWT_SECRET: process.env.JWT_SECRET || 'royal_fleet_secure_jwt_token_secret_key_2026',
   JWT_EXPIRES_IN: process.env.JWT_EXPIRES_IN || '7d',
   BASE_URL: process.env.BASE_URL || 'http://localhost:5000',
