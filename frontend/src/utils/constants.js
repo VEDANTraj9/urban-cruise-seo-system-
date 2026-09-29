@@ -1,6 +1,9 @@
 // API and Application Constants
 
-export const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+const rawApiBase = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
+export const API_BASE = rawApiBase.replace(/\/+$/, '').endsWith('/api')
+  ? rawApiBase.replace(/\/+$/, '')
+  : `${rawApiBase.replace(/\/+$/, '')}/api`;
 
 export const SITE_NAME = 'Urban Cruise';
 export const SITE_TAGLINE = 'Luxury Fleet & Travel Rentals';

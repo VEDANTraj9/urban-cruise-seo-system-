@@ -40,8 +40,9 @@ app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
-// Mount All API Routes
+// Mount All API Routes (Supports both /api/* and root fallback /*)
 app.use('/api', routes);
+app.use(routes);
 
 // 404 Route Catcher
 app.use((req, res, next) => {
