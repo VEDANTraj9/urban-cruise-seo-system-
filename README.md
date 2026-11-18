@@ -1,4 +1,4 @@
-# SEO Dashboard & Dynamic Homepage Management System
+# Royal Wheels Delhi - Luxury Fleet & Dynamic Homepage Management System
 
 A full-stack web application built to dynamically manage website SEO configurations, JSON-LD structured schemas, and complete homepage content without modifying source code.
 

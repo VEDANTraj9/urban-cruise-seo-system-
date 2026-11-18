@@ -1,4 +1,5 @@
 /* Global Stylesheet: globals.css */
+/* Brand: Royal Wheels Delhi | Theme: Royal Emerald & Deep Slate */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,26 +7,71 @@
 }
 
 :root {
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
-  --primary-light: #eff6ff;
-  --dark: #0f172a;
-  --dark-surface: #1e293b;
-  --text-main: #334155;
+  /* Royal Emerald Palette */
+  --primary: #059669;
+  --primary-hover: #047857;
+  --primary-dark: #064e3b;
+  --primary-light: #ecfdf5;
+  --primary-subtle: #d1fae5;
+  --primary-border: #a7f3d0;
+  --primary-glow: rgba(5, 150, 105, 0.28);
+
+  /* Deep Slate & Obsidian Surfaces */
+  --dark: #090d16;
+  --dark-surface: #0f172a;
+  --dark-surface-elevated: #1e293b;
+  --dark-card: #182234;
+  --dark-border: rgba(255, 255, 255, 0.08);
+
+  /* Luxury Gold Accents */
+  --gold: #d97706;
+  --gold-light: #f59e0b;
+  --gold-subtle: #fef3c7;
+  --gold-glow: rgba(245, 158, 11, 0.25);
+
+  /* Neutrals & Text */
+  --text-main: #0f172a;
+  --text-secondary: #334155;
   --text-muted: #64748b;
+  --text-light: #f8fafc;
   --border: #e2e8f0;
+  --border-light: #f1f5f9;
   --bg-light: #f8fafc;
+  --bg-card: #ffffff;
   --white: #ffffff;
-  --success: #16a34a;
-  --danger: #dc2626;
-  --warning: #d97706;
+
+  /* Status Colors */
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --info: #0ea5e9;
+
+  /* Gradients */
+  --grad-emerald: linear-gradient(135deg, #10b981 0%, #059669 50%, #047857 100%);
+  --grad-emerald-dark: linear-gradient(135deg, #059669 0%, #064e3b 100%);
+  --grad-slate: linear-gradient(135deg, #0f172a 0%, #090d16 100%);
+  --grad-gold: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+  --grad-luxury: linear-gradient(135deg, #0f172a 0%, #064e3b 100%);
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+  --shadow-emerald: 0 10px 25px -5px rgba(5, 150, 105, 0.35);
+  --shadow-luxury: 0 20px 35px -10px rgba(9, 13, 22, 0.45);
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: var(--text-main);
-  background-color: var(--bg-light);
+  background: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.08) 0px, transparent 50%),
+    radial-gradient(at 100% 50%, rgba(245, 158, 11, 0.07) 0px, transparent 40%),
+    radial-gradient(at 0% 100%, rgba(5, 150, 105, 0.06) 0px, transparent 50%),
+    #f8fafc;
+  background-attachment: fixed;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -46,7 +92,7 @@ input, textarea, select {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -61,20 +107,23 @@ input, textarea, select {
   font-size: 14px;
   font-weight: 500;
   z-index: 9999;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  animation: slideIn 0.3s ease;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .toast.success {
-  background-color: #dcfce7;
-  color: #15803d;
-  border: 1px solid #86efac;
+  background-color: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
 }
 
 .toast.error {
-  background-color: #fee2e2;
-  color: #b91c1c;
-  border: 1px solid #fca5a5;
+  background-color: #fef2f2;
+  color: #991b1b;
+  border: 1px solid #fecaca;
 }
 
 @keyframes slideIn {
@@ -100,4 +149,3 @@ div[data-nextjs-toast-wrapper],
   opacity: 0 !important;
   pointer-events: none !important;
 }
-

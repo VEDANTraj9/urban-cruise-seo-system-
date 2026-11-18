@@ -71,7 +71,7 @@ export default function HomepageTab({ hero, setHero, about, setAbout, showToast 
                 className="form-input"
                 value={hero.main_heading || ''}
                 onChange={(e) => setHero({ ...hero, main_heading: e.target.value })}
-                placeholder="Welcome to Urban Cruise Delhi"
+                placeholder="Experience Royal Luxury with Royal Wheels Delhi"
                 required
               />
             </div>

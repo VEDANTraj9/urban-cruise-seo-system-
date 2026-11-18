@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
+import BrandLogo from '@/components/common/BrandLogo';
 
 export default function ErrorBoundary({ error, reset }) {
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function ErrorBoundary({ error, reset }) {
       flexDirection: 'column',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor: '#0b1120',
+      backgroundColor: '#090d16',
       color: '#f8fafc',
       padding: '24px',
       textAlign: 'center',
@@ -23,56 +24,55 @@ export default function ErrorBoundary({ error, reset }) {
     }}>
       <div style={{
         maxWidth: '520px',
-        background: '#1e293b',
-        border: '1px solid #334155',
+        background: '#0f172a',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
         borderRadius: '16px',
         padding: '36px 28px',
-        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.4)'
+        boxShadow: '0 20px 25px -5px rgba(0, 0, 0, 0.5)'
       }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo.png"
-          alt="Urban Cruise"
-          style={{ width: '64px', height: '64px', margin: '0 auto 18px', objectFit: 'contain' }}
-        />
-        <h2 style={{ fontSize: '22px', fontWeight: '700', marginBottom: '8px', color: '#e2e8f0' }}>
-          Urban Cruise Delhi
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 18 }}>
+          <BrandLogo variant="light" size="lg" />
+        </div>
+        <h2 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '8px', color: '#e2e8f0' }}>
+          Royal Wheels Delhi
         </h2>
-        <p style={{ color: '#94a3b8', fontSize: '15px', lineHeight: '1.6', marginBottom: '24px' }}>
-          Connecting to live fleet server. The backend server might be starting up from idle state.
+        <p style={{ color: '#94a3b8', fontSize: '14.5px', lineHeight: '1.6', marginBottom: '24px' }}>
+          Connecting to live fleet server. If you just deployed, the server might be waking up from idle mode.
         </p>
 
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center' }}>
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <button
             onClick={() => reset()}
             style={{
-              background: '#4f46e5',
+              background: 'linear-gradient(135deg, #059669, #047857)',
               color: '#ffffff',
               border: 'none',
-              padding: '10px 20px',
               borderRadius: '8px',
-              fontSize: '14px',
+              padding: '10px 20px',
               fontWeight: '600',
-              cursor: 'pointer'
+              fontSize: '14px',
+              cursor: 'pointer',
+              boxShadow: '0 4px 12px rgba(5, 150, 105, 0.3)'
             }}
           >
-            ↻ Try Again
+            Retry Connection 🔄
           </button>
           <Link
             href="/"
-            onClick={() => window.location.reload()}
             style={{
-              background: '#334155',
-              color: '#f1f5f9',
-              padding: '10px 20px',
+              background: '#1e293b',
+              color: '#94a3b8',
+              border: '1px solid #334155',
               borderRadius: '8px',
-              fontSize: '14px',
+              padding: '10px 20px',
               fontWeight: '600',
+              fontSize: '14px',
               textDecoration: 'none',
-              display: 'inline-block'
+              display: 'inline-flex',
+              alignItems: 'center'
             }}
           >
-            Refresh Home
+            Home
           </Link>
         </div>
       </div>

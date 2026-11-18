@@ -1,26 +1,33 @@
 /* ============================================================
    Admin Dashboard Stylesheet: dashboard.css
-   Modern, Clean, Responsive Design for Urban Cruise
+   Brand: Royal Wheels Delhi
+   Theme: Royal Emerald & Deep Slate (Prestigious & Trustworthy)
    ============================================================ */
 
 /* 1. Dashboard Layout Structure */
 .dashboard-layout {
   display: flex;
   min-height: 100vh;
-  background-color: #f8fafc;
+  background: 
+    radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.12) 0px, transparent 45%),
+    radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.1) 0px, transparent 40%),
+    radial-gradient(at 50% 100%, rgba(245, 158, 11, 0.08) 0px, transparent 45%),
+    #f8fafc;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   color: #1e293b;
 }
 
 /* 2. Sidebar Navigation */
 .dashboard-sidebar {
-  width: 260px;
-  background-color: #0f172a;
+  width: 270px;
+  background: 
+    radial-gradient(circle at 50% 0%, rgba(5, 150, 105, 0.3) 0%, transparent 60%),
+    #090d16;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
-  border-right: 1px solid #1e293b;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   position: sticky;
   top: 0;
   height: 100vh;
@@ -29,13 +36,13 @@
 }
 
 .dashboard-layout.desktop-collapsed .dashboard-sidebar {
-  margin-left: -260px;
+  margin-left: -270px;
 }
 
 .sidebar-brand {
-  padding: 20px 18px;
-  border-bottom: 1px solid #1e293b;
-  background-color: #0b1120;
+  padding: 22px 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #060910;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,20 +53,16 @@
   flex-direction: column;
 }
 
-.sidebar-logo {
-  max-height: 40px;
-  max-width: 180px;
-  object-fit: contain;
-  display: block;
-}
-
 .sidebar-tag {
   font-size: 11px;
-  color: #38bdf8;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  color: #10b981;
+  font-weight: 700;
+  letter-spacing: 0.8px;
   text-transform: uppercase;
   margin-top: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .sidebar-close-btn {
@@ -110,16 +113,16 @@
 }
 
 .nav-item:hover {
-  background-color: #1e293b;
+  background-color: rgba(255, 255, 255, 0.05);
   color: #ffffff;
   transform: translateX(2px);
 }
 
 .nav-item.active {
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #059669, #047857);
   color: #ffffff;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
 }
 
 .nav-icon {
@@ -136,8 +139,8 @@
 /* Sidebar Footer & User Info */
 .sidebar-footer {
   padding: 18px 16px;
-  border-top: 1px solid #1e293b;
-  background-color: #0b1120;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background-color: #060910;
 }
 
 .user-profile {
@@ -151,7 +154,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  background: linear-gradient(135deg, #10b981, #059669);
   color: #ffffff;
   display: flex;
   align-items: center;
@@ -159,7 +162,7 @@
   font-weight: 700;
   font-size: 15px;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 8px rgba(5, 150, 105, 0.3);
 }
 
 .user-info {
@@ -184,7 +187,7 @@
   display: block;
   font-size: 11px;
   font-weight: 600;
-  color: #38bdf8;
+  color: #10b981;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -227,9 +230,12 @@
 }
 
 .dashboard-topbar {
-  height: 64px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
+  height: 68px;
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, #059669 0%, #10b981 50%, #f59e0b 100%) 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -237,7 +243,7 @@
   position: sticky;
   top: 0;
   z-index: 40;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .topbar-left {
@@ -253,7 +259,7 @@
 
 .topbar-title {
   font-size: 18px;
-  font-weight: 700;
+  font-weight: 800;
   color: #0f172a;
   line-height: 1.2;
 }
@@ -269,6 +275,25 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.topbar-link-site {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #059669;
+  background: #ecfdf5;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid #a7f3d0;
+  transition: all 0.2s ease;
+}
+
+.topbar-link-site:hover {
+  background: #059669;
+  color: #ffffff;
 }
 
 .topbar-admin-badge {
@@ -288,8 +313,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background-color: #22c55e;
-  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.2);
+  background-color: #10b981;
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.2);
 }
 
 /* Modern Animated Hamburger Button */
@@ -339,8 +364,8 @@
 .sidebar-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(3px);
+  background: rgba(9, 13, 22, 0.7);
+  backdrop-filter: blur(4px);
   z-index: 95;
   animation: fadeIn 0.2s ease;
 }
@@ -385,7 +410,7 @@
   margin-top: 4px;
 }
 
-/* 4. Overview Stats Grid (CLEAN, SEPARATED CARDS) */
+/* 4. Overview Stats Grid */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -408,7 +433,7 @@
 .stat-card:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  border-color: #cbd5e1;
+  border-color: #a7f3d0;
 }
 
 .stat-icon {
@@ -447,7 +472,7 @@
   line-height: 1.2;
 }
 
-/* 5. Health Check List (FIXED FORMATTING) */
+/* 5. Health Check List */
 .health-list {
   display: flex;
   flex-direction: column;
@@ -492,8 +517,8 @@
 }
 
 .badge-success {
-  background-color: #dcfce7;
-  color: #15803d;
+  background-color: #ecfdf5;
+  color: #059669;
 }
 
 .badge-warning {
@@ -502,8 +527,8 @@
 }
 
 .badge-info {
-  background-color: #e0f2fe;
-  color: #0284c7;
+  background-color: #ecfdf5;
+  color: #047857;
 }
 
 .health-value {
@@ -520,10 +545,22 @@
 /* 6. Cards & Containers */
 .card {
   background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 12px;
-  padding: 26px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(5, 150, 105, 0.14);
+  border-radius: 14px;
+  padding: 28px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #059669, #10b981, #f59e0b);
 }
 
 .card-header {
@@ -579,15 +616,15 @@
 
 .feature-chip {
   display: inline-block;
-  background-color: #f1f5f9;
-  color: #475569;
+  background-color: #ecfdf5;
+  color: #065f46;
   font-size: 11px;
-  font-weight: 500;
+  font-weight: 600;
   padding: 3px 8px;
   border-radius: 4px;
   margin-right: 4px;
   margin-bottom: 4px;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #a7f3d0;
 }
 
 .badge {
@@ -599,8 +636,8 @@
 }
 
 .badge-active {
-  background-color: #dcfce7;
-  color: #15803d;
+  background-color: #ecfdf5;
+  color: #059669;
 }
 
 .badge-disabled {
@@ -610,19 +647,19 @@
 
 .btn-table-edit {
   padding: 6px 12px;
-  background-color: #eff6ff;
-  color: #2563eb;
+  background-color: #ecfdf5;
+  color: #059669;
   border-radius: 6px;
   font-size: 12px;
   font-weight: 600;
-  border: 1px solid #bfdbfe;
+  border: 1px solid #a7f3d0;
   cursor: pointer;
   margin-right: 6px;
   transition: all 0.15s;
 }
 
 .btn-table-edit:hover {
-  background-color: #2563eb;
+  background-color: #059669;
   color: #ffffff;
 }
 
@@ -663,9 +700,9 @@
 }
 
 .reorder-btns button:hover:not(:disabled) {
-  background-color: #2563eb;
+  background-color: #059669;
   color: #ffffff;
-  border-color: #2563eb;
+  border-color: #059669;
 }
 
 .reorder-btns button:disabled {
@@ -709,8 +746,8 @@
 }
 
 .form-input:focus, .form-textarea:focus, .form-select:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  border-color: #059669;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.15);
 }
 
 .char-count {
@@ -746,21 +783,21 @@
 
 .btn-save {
   padding: 12px 24px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #059669, #047857);
   color: #ffffff;
   border-radius: 8px;
   font-size: 14px;
   font-weight: 700;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 4px 12px rgba(5, 150, 105, 0.28);
   transition: all 0.2s ease;
 }
 
 .btn-save:hover:not(:disabled) {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, #10b981, #059669);
   transform: translateY(-1px);
-  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 6px 16px rgba(5, 150, 105, 0.38);
 }
 
 .btn-save:disabled {
@@ -770,19 +807,19 @@
 
 .btn-add {
   padding: 10px 18px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #059669, #047857);
   color: #ffffff;
   border-radius: 8px;
   font-size: 13.5px;
   font-weight: 600;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 4px 10px rgba(5, 150, 105, 0.25);
   transition: all 0.2s ease;
 }
 
 .btn-add:hover {
-  background: #1d4ed8;
+  background: linear-gradient(135deg, #10b981, #059669);
 }
 
 /* Checkbox group */
@@ -804,7 +841,7 @@
 .checkbox-label input[type="checkbox"] {
   width: 16px;
   height: 16px;
-  accent-color: #2563eb;
+  accent-color: #059669;
 }
 
 /* 9. Schemas Tab */
@@ -920,7 +957,7 @@
 .alt-tag-label {
   font-size: 11px;
   font-weight: 700;
-  color: #2563eb;
+  color: #059669;
   text-transform: uppercase;
 }
 
@@ -956,7 +993,7 @@
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(15, 23, 42, 0.6);
+  background-color: rgba(9, 13, 22, 0.7);
   backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
@@ -1002,7 +1039,7 @@
 
 .btn-modal-save {
   padding: 10px 22px;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  background: linear-gradient(135deg, #059669, #047857);
   color: #ffffff;
   border-radius: 7px;
   font-size: 13.5px;
@@ -1027,7 +1064,7 @@
   width: 40px;
   height: 40px;
   border: 4px solid #e2e8f0;
-  border-top-color: #2563eb;
+  border-top-color: #059669;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }

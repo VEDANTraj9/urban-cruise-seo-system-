@@ -17,7 +17,7 @@ const publicRoutes = require('./public.routes');
 router.get('/', (req, res) => {
   res.status(200).json({
     success: true,
-    message: 'Urban Cruise Delhi REST API is active and healthy!',
+    message: 'Royal Wheels Delhi REST API is active and healthy!',
     version: '1.0.0',
     endpoints: {
       seo: '/api/public/seo',

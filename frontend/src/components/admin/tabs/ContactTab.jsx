@@ -63,7 +63,7 @@ export default function ContactTab({ contact, setContact, showToast }) {
               className="form-input"
               value={contact.email || ''}
               onChange={(e) => setContact({ ...contact, email: e.target.value })}
-              placeholder="info@urbancruise.in"
+              placeholder="info@royalwheelsdelhi.com"
               required
             />
           </div>

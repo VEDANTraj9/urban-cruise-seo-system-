@@ -1,3 +1,5 @@
+import BrandLogo from '@/components/common/BrandLogo';
+
 export default function Sidebar({ activeTab, setActiveTab, currentUser, onLogout, isOpen, onClose }) {
   const tabs = [
     { id: 'overview', label: 'Overview', icon: '📊' },
@@ -15,9 +17,11 @@ export default function Sidebar({ activeTab, setActiveTab, currentUser, onLogout
     <aside className={`dashboard-sidebar ${isOpen ? 'show' : ''}`}>
       <div className="sidebar-brand">
         <div className="sidebar-brand-info">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="Urban Cruise" className="sidebar-logo" />
-          <p className="sidebar-tag">Control Panel</p>
+          <BrandLogo variant="light" size="sm" showTagline={false} />
+          <p className="sidebar-tag">
+            <span>👑</span>
+            <span>Admin Control Panel</span>
+          </p>
         </div>
         <button
           type="button"

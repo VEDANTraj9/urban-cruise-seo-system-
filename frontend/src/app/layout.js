@@ -1,9 +1,9 @@
 import "@/styles/globals.css";
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://urbancruise.in'),
-  title: "Urban Cruise Delhi | Luxury Tempo Traveller & Bus Rentals",
-  description: "Book luxury Tempo Travellers, Force Urbania, and executive charter buses with Urban Cruise Delhi for weddings, corporate events, and outstation trips.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://royalwheelsdelhi.com'),
+  title: "Royal Wheels Delhi | Luxury Tempo Traveller & Bus Rentals",
+  description: "Book luxury Tempo Travellers, Force Urbania, and executive charter buses with Royal Wheels Delhi for weddings, corporate events, and outstation trips.",
   icons: {
     icon: [
       { url: '/logo.png', type: 'image/png' },

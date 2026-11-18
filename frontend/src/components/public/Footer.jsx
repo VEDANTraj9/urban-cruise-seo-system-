@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { AuthService } from '@/services/auth.service';
+import BrandLogo from '@/components/common/BrandLogo';
 
 export default function Footer({ contact }) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -13,7 +14,7 @@ export default function Footer({ contact }) {
 
   const phone = contact?.phone_primary || '+91 93240 48224';
   const phoneSecondary = contact?.phone_secondary || '+91 98765 43210';
-  const email = contact?.email || 'info@urbancruise.in';
+  const email = contact?.email || 'info@royalwheelsdelhi.com';
   const address = contact?.office_address || 'Plot No. 14, Commercial Transport Plaza, Connaught Place, New Delhi - 110001';
   const cleanPhone = phone.replace(/[^0-9]/g, '');
 
@@ -25,7 +26,7 @@ export default function Footer({ contact }) {
           <div className="trust-item">
             <span className="trust-icon">🛡️</span>
             <div>
-              <strong>GPS & Sanitized</strong>
+              <strong>GPS & Sanitized Fleet</strong>
               <p>Cleaned & tracked before every ride</p>
             </div>
           </div>
@@ -33,13 +34,13 @@ export default function Footer({ contact }) {
             <span className="trust-icon">👨‍✈️</span>
             <div>
               <strong>Verified Chauffeurs</strong>
-              <p>Polite, trained, & punctual</p>
+              <p>Polite, trained, & highway-expert</p>
             </div>
           </div>
           <div className="trust-item">
             <span className="trust-icon">⭐</span>
             <div>
-              <strong>4.9 / 5 Rated</strong>
+              <strong>4.9 / 5 Rated Luxury</strong>
               <p>Top choice across Delhi NCR</p>
             </div>
           </div>
@@ -57,9 +58,8 @@ export default function Footer({ contact }) {
       <div className="container footer-main-grid">
         {/* Column 1: Brand Info & Mission */}
         <div className="footer-col footer-col-brand">
-          <Link href="/" className="footer-logo-link" aria-label="Urban Cruise">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.png" alt="Urban Cruise" className="footer-logo-img" />
+          <Link href="/" className="footer-logo-link" aria-label="Royal Wheels Delhi">
+            <BrandLogo variant="light" size="md" />
           </Link>
           <p className="footer-about-text">
             Delhi NCR’s premier luxury vehicle rental service. Providing high-end Force Urbania, Maharaja Tempo Travellers, and executive buses for weddings, corporate travel, and family outstation tours.
@@ -67,7 +67,7 @@ export default function Footer({ contact }) {
 
           <div className="footer-social-links">
             <a
-              href={`https://wa.me/${cleanPhone}?text=Hi%20Urban%20Cruise%2C%20I%20want%20to%20inquire%20about%20vehicle%20rental.`}
+              href={`https://wa.me/${cleanPhone}?text=Hi%20Royal%20Wheels%20Delhi%2C%20I%20want%20to%20inquire%20about%20vehicle%20rental.`}
               target="_blank"
               rel="noopener noreferrer"
               className="social-btn social-whatsapp"
@@ -145,21 +145,13 @@ export default function Footer({ contact }) {
       <div className="footer-bottom-bar">
         <div className="container footer-bottom-inner">
           <p className="copyright-text">
-            © {new Date().getFullYear()} <strong>Urban Cruise Delhi</strong>. All rights reserved. • Premium Transport Solutions
+            © {new Date().getFullYear()} <strong>Royal Wheels Delhi</strong>. All rights reserved. • Luxury Transport Solutions
           </p>
           <div className="footer-bottom-links">
             <a href="#about">About Us</a>
             <a href="#testimonials">Reviews</a>
             <a href="#contact">Contact</a>
-            {isLoggedIn ? (
-              <Link href="/admin/dashboard" className="footer-admin-link">
-                Dashboard ⚙️
-              </Link>
-            ) : (
-              <Link href="/admin/login" className="footer-admin-link">
-                Admin Portal 🔒
-              </Link>
-            )}
+            {/* x` */}
           </div>
         </div>
       </div>

@@ -34,33 +34,33 @@ export function getImageUrl(src) {
   return clean;
 }
 
-export const SITE_NAME = 'Urban Cruise';
-export const SITE_TAGLINE = 'Luxury Fleet & Travel Rentals';
+export const SITE_NAME = 'Royal Wheels Delhi';
+export const SITE_TAGLINE = 'Luxury Fleet & Chauffeur Rentals';
 
 export const DEFAULT_SEO = {
-  meta_title: 'Urban Cruise | Luxury Fleet & Bus Rentals in Delhi NCR',
-  meta_description: 'Book luxury Tempo Travellers, Force Urbania, and executive charter buses with Urban Cruise Delhi for weddings, corporate events, and outstation trips.',
-  focus_keywords: 'urban cruise, tempo traveller hire, force urbania rental, luxury bus delhi',
+  meta_title: 'Royal Wheels Delhi | Luxury Tempo Traveller & Bus Rentals',
+  meta_description: 'Book luxury 9 to 20 seater Tempo Travellers, Force Urbania, and executive charter buses with Royal Wheels Delhi for weddings, corporate events, and outstation trips.',
+  focus_keywords: 'royal wheels delhi, luxury tempo traveller hire, force urbania rental, luxury bus delhi, wedding tempo traveller',
   canonical_url: 'http://localhost:3000',
   robots_index: true,
   robots_follow: true,
-  og_title: 'Urban Cruise | Premium Group Travel Solutions',
+  og_title: 'Royal Wheels Delhi | Premium Group Travel Solutions',
   og_description: 'Luxury Tempo Travellers and Buses with verified chauffeurs and premium pushback comfort.',
   og_image: '/logo.png',
   twitter_card_type: 'summary_large_image'
 };
 
 export const DEFAULT_HERO = {
-  main_heading: 'Welcome to Urban Cruise Delhi',
-  sub_heading: 'Hire 9 to 20-seater luxury Tempo Travellers, Force Urbania, and executive charter buses for weddings, corporate events, and outstation trips.',
+  main_heading: 'Experience Royal Luxury On Every Journey',
+  sub_heading: 'Hire 9 to 20-seater luxury Tempo Travellers, Force Urbania, and executive charter coaches in Delhi NCR with verified chauffeurs.',
   banner_image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=1600&q=80',
-  cta_text: 'Explore Fleet',
+  cta_text: 'Explore Luxury Fleet',
   cta_url: '#vehicles'
 };
 
 export const DEFAULT_ABOUT = {
-  section_title: 'Dedicated to Delivering Excellence on Every Mile',
-  description: 'With over a decade of excellence in luxury passenger transportation, Urban Cruise provides sanitized, ultra-comfortable Tempo Travellers, Force Urbania, and executive buses with verified chauffeurs.',
+  section_title: 'Dedicated to Delivering Royal Hospitality on Every Mile',
+  description: 'With over a decade of excellence in luxury passenger transportation, Royal Wheels Delhi provides sanitized, ultra-comfortable Tempo Travellers, Force Urbania, and executive buses with verified chauffeurs.',
   featured_image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?auto=format&fit=crop&w=800&q=80'
 };
 
@@ -82,9 +82,11 @@ export function getMapIframeSrc(input) {
     return str;
   }
 
-  // 3. If it contains Urban Cruise place token or name
+  // 3. If it contains place token or brand name
   if (
     str.includes('0x390cfbdf6e5c3f2d:0x4ac4ecf5867fdb04') ||
+    str.toLowerCase().includes('royal+wheels') ||
+    str.toLowerCase().includes('royal%20wheels') ||
     str.toLowerCase().includes('urban+cruise') ||
     str.toLowerCase().includes('urban%20cruise')
   ) {

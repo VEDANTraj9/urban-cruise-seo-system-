@@ -54,7 +54,7 @@ export default function SeoTab({ seo, setSeo, showToast }) {
               className="form-input"
               value={seo.meta_title || ''}
               onChange={(e) => setSeo({ ...seo, meta_title: e.target.value })}
-              placeholder="e.g. Urban Cruise | Luxury Fleet Rentals Delhi"
+              placeholder="e.g. Royal Wheels Delhi | Luxury Fleet Rentals Delhi"
               required
             />
             <span className="char-count">{(seo.meta_title || '').length} / 60 recommended characters</span>
@@ -80,7 +80,7 @@ export default function SeoTab({ seo, setSeo, showToast }) {
               className="form-input"
               value={seo.focus_keywords || ''}
               onChange={(e) => setSeo({ ...seo, focus_keywords: e.target.value })}
-              placeholder="tempo traveller delhi, urban cruise, force urbania hire"
+              placeholder="tempo traveller delhi, royal wheels delhi, force urbania hire"
             />
           </div>
 

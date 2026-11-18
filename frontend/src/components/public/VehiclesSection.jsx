@@ -4,13 +4,13 @@ import { getImageUrl } from '@/utils/constants';
 
 export default function VehiclesSection({ vehicles }) {
   return (
-    <section id="vehicles" className="section section-alt">
+    <section id="vehicles" className="section">
       <div className="container">
         <div className="section-header">
-          <span className="section-tag">Our Fleet</span>
+          <span className="section-tag">Royal Fleet</span>
           <h2 className="section-title">Luxury Vehicles for Group Travel</h2>
           <p className="section-desc">
-            Choose from 9 to 20 seater Tempo Travellers, Force Urbania, and full-size luxury buses.
+            Choose from 9 to 20-seater Maharaja Tempo Travellers, Force Urbania, and full-size luxury buses.
           </p>
         </div>
 
@@ -27,9 +27,11 @@ export default function VehiclesSection({ vehicles }) {
                   <img
                     src={getImageUrl(v.image)}
                     alt={v.name}
-                    onError={(e) => { e.currentTarget.src = '/logo.png'; }}
+                    onError={(e) => {
+                      e.currentTarget.src = 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80';
+                    }}
                   />
-                  <span className="vehicle-capacity-tag">{v.seating_capacity} Seater</span>
+                  <span className="vehicle-capacity-tag">{v.seating_capacity} Seater Luxury</span>
                 </div>
                 <div className="vehicle-card-body">
                   <div>
@@ -39,15 +41,17 @@ export default function VehiclesSection({ vehicles }) {
                       {(Array.isArray(v.features)
                         ? v.features
                         : (typeof v.features === 'string'
-                            ? v.features.split(',').map(s => s.trim()).filter(Boolean)
+                            ? v.features.split(',').map((s) => s.trim()).filter(Boolean)
                             : [])
                       ).map((f, i) => (
-                        <span key={i} className="feature-pill">✓ {f}</span>
+                        <span key={i} className="feature-pill">
+                          <span className="feature-pill-check">✓</span> {f}
+                        </span>
                       ))}
                     </div>
                   </div>
                   <a href="#contact" className="btn-book-vehicle">
-                    Inquire Booking
+                    Inquire Booking & Pricing
                   </a>
                 </div>
               </div>

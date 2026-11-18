@@ -113,7 +113,7 @@ export default function SchemasTab({ schemas, setSchemas, showToast }) {
                 setEditingRaw(true);
                 setJsonData(e.target.value);
               }}
-              placeholder={`{\n  "name": "Urban Cruise",\n  "url": "https://urbancruise.in"\n}`}
+              placeholder={`{\n  "name": "Royal Wheels Delhi",\n  "url": "https://royalwheelsdelhi.com"\n}`}
               required
             />
           </div>

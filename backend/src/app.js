@@ -31,7 +31,7 @@ app.use('/api/uploads', express.static(path.join(__dirname, '../uploads')));
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 'ok',
-    message: 'Urban Cruise Delhi Backend API is running live!',
+    message: 'Royal Wheels Delhi Backend API is running live!',
     version: '1.0.0'
   });
 });

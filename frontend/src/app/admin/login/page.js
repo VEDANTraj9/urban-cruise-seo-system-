@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { AuthService } from '@/services/auth.service';
 import { useAuth } from '@/hooks/useAuth';
+import BrandLogo from '@/components/common/BrandLogo';
 import '@/styles/login.css';
 
 export default function AdminLoginPage() {
@@ -50,14 +51,11 @@ export default function AdminLoginPage() {
     <div className="login-container">
       <div className="login-card">
         <div className="login-header">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/logo.png"
-            alt="Urban Cruise"
-            style={{ maxHeight: 52, margin: '0 auto 12px', display: 'block', objectFit: 'contain' }}
-          />
-          <h1>Admin Portal</h1>
-          <p>Urban Cruise • Dynamic Management</p>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: 16 }}>
+            <BrandLogo variant="dark" size="lg" />
+          </div>
+          <h1>Admin Control Portal</h1>
+          <p>Royal Wheels Delhi • Dynamic Management</p>
         </div>
 
         {error && <div className="error-alert">{error}</div>}
@@ -94,7 +92,7 @@ export default function AdminLoginPage() {
 
         {/* <div className="demo-box">
           <button type="button" onClick={fillDemo} className="btn-demo">
-            Auto-fill Admin Credentials
+            Auto-fill Demo Credentials
           </button>
         </div> */}
 

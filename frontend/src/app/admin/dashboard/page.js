@@ -61,7 +61,7 @@ export default function AdminDashboardPage() {
     return (
       <div className="dashboard-loading">
         <div className="spinner" />
-        <p>Loading Urban Cruise Dashboard...</p>
+        <p>Loading Royal Wheels Delhi Dashboard...</p>
       </div>
     );
   }
@@ -111,11 +111,21 @@ export default function AdminDashboardPage() {
             </button>
             <div className="topbar-title-wrap">
               <h1 className="topbar-title">{TAB_TITLES[activeTab] || 'Dashboard'}</h1>
-              <span className="topbar-subtitle">Urban Cruise Admin Panel</span>
+              <span className="topbar-subtitle">Royal Wheels Delhi • Control Center</span>
             </div>
           </div>
 
           <div className="topbar-right">
+            <a
+              href="/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="topbar-link-site"
+              title="Open Public Website in new tab"
+            >
+              <span>Live Site</span>
+              <span>↗</span>
+            </a>
             <div className="topbar-admin-badge">
               <span className="online-indicator" />
               <span>{currentUser?.name || 'Administrator'}</span>
